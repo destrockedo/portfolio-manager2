@@ -1,4 +1,16 @@
 package com.pluralsight;
 
-public class Jewelry {
+import java.math.BigDecimal;
+
+public class Jewelry extends FixedAsset {
+    private double karat;
+
+    public Jewelry(String name, double karat) {
+        super(name);
+        this.karat = karat;
+    }
+
+    public BigDecimal getValue(){
+        return BigDecimal.ZERO;
+    }
 }
