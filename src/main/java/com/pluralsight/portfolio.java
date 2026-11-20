@@ -26,10 +26,46 @@ public class portfolio {
         }
         return total;
     }
-    public BigDecimal getMostValuable(List<Valuable> assets){
 
-    }
-    public BigDecimal getLeastValuable(List<Valuable> assets){
+        public Valuable getMostValuable() {
+            if (assets.isEmpty()) {
+                return null;
+            }
 
-    }
+            // Start with the first item as the best one seen so far
+            Valuable mostValuable = assets.get(0);
+
+            for (Valuable asset : assets) {
+                // BigDecimal has no > operator, .compareTo(b) returns a
+                // positive number when a is bigger than b, 0 when they are
+                // equal and a negative number when a is smaller
+                if (asset.getValue().compareTo(mostValuable.getValue()) > 0) {
+                    mostValuable = asset;
+                }
+            }
+
+            return mostValuable;
+        }
+
+        public Valuable getLeastValuable() {
+            if (assets.isEmpty()) {
+                return null;
+            }
+
+            // Start with the first item as the least valuable one seen so far
+            Valuable leastValuable = assets.get(0);
+
+            for (Valuable asset : assets) {
+                // BigDecimal has no < operator, .compareTo(b) returns a
+                // positive number when a is bigger than b, 0 when they are
+                // equal and a negative number when a is smaller
+                if (asset.getValue().compareTo(leastValuable.getValue()) < 0) {
+                    leastValuable = asset;
+                }
+            }
+
+            return leastValuable;
+        }
+
+
 }
